@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Task 3 - Responsive Web Layout</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+
+        /* =========================
+           SIDEBAR / NAVBAR
+        ========================= */
+
+        .sidebar {
+            width: 275px;
+            height: 100vh;
+
+            position: fixed;
+            left: 0;
+            top: 0;
+
+            background-color: #222;
+            color: white;
+
+            padding: 30px;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 30px;
+        }
+
+        .sidebar a {
+            display: block;
+
+            color: white;
+            text-decoration: none;
+
+            padding: 12px;
+            margin-bottom: 25px;
+
+            border-radius: 5px;
+        }
+
+        .sidebar a:hover {
+            background-color: #444;
+        }
+
+
+        /* =========================
+           RIGHT SIDE PAGE CONTENT
+        ========================= */
+
+        .page-content {
+            margin-left: 275px;
+            width: calc(100% - 275px);
+        }
+
+
+        /* =========================
+           MAIN CONTENT
+        ========================= */
+
+        .main-content {
+            padding: 40px;
+
+            background-color: white;
+        }
+
+        .main-content h1 {
+            margin-bottom: 15px;
+        }
+
+        .main-content p {
+            font-size: 18px;
+        }
+
+
+        /* =========================
+           PRODUCT SECTION
+        ========================= */
+
+        .product-section {
+            padding: 30px 40px;
+
+            text-align: center;
+
+            background-color: #f4f4f4;
+        }
+
+        .product-section h2 {
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           PRODUCT CARD
+           CSS BOX MODEL
+        ========================= */
+
+        .product-card {
+            width: 350px;
+
+            /* Margin - outside space */
+            margin: 0 auto;
+
+            /* Padding - inside space */
+            padding: 20px;
+
+            /* Border */
+            border: 3px solid #333;
+
+            background-color: white;
+
+            border-radius: 12px;
+
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 210px;
+
+            object-fit: contain;
+
+            border-radius: 8px;
+
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            font-size: 22px;
+
+            margin-bottom: 10px;
+        }
+
+        .product-card p {
+            color: #555;
+
+            font-size: 17px;
+
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 22px;
+            font-weight: bold;
+
+            margin-bottom: 15px;
+        }
+
+        .buy-btn {
+            padding: 10px 25px;
+
+            border: none;
+
+            background-color: #222;
+            color: white;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            font-size: 16px;
+        }
+
+        .buy-btn:hover {
+            background-color: #4f46e5;
+        }
+
+
+        /* =========================
+           BLOG SECTION
+        ========================= */
+
+        .blog-section {
+            padding: 40px;
+
+            background: linear-gradient(135deg, #eef2ff, #f8fafc);
+        }
+
+        .blog-section h2 {
+            text-align: center;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================
+           3 COLUMN FLEXBOX
+        ========================= */
+
+        .blog-container {
+            display: flex;
+
+            gap: 25px;
+        }
+
+        .blog-card {
+            flex: 1;
+
+            padding: 25px;
+
+            border: 2px solid #d8dfff;
+
+            border-radius: 15px;
+
+            background: linear-gradient(135deg, #ffffff, #f1f5ff);
+
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+            transition: 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-card h3 {
+            color: #4f46e5;
+
+            font-size: 22px;
+
+            margin-bottom: 12px;
+        }
+
+        .blog-card p {
+            color: #555;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           MOBILE RESPONSIVENESS
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            /* Sidebar becomes normal top navigation */
+
+            .sidebar {
+                position: relative;
+
+                width: 100%;
+                height: auto;
+
+                text-align: center;
+
+                padding: 20px;
+            }
+
+            .sidebar h2 {
+                margin-bottom: 15px;
+            }
+
+            .sidebar a {
+                display: inline-block;
+
+                margin: 5px;
+
+                padding: 10px 15px;
+            }
+
+
+            /* Remove left space on mobile */
+
+            .page-content {
+                margin-left: 0;
+
+                width: 100%;
+            }
+
+
+            /* Main content */
+
+            .main-content {
+                padding: 30px 20px;
+
+                text-align: center;
+            }
+
+            .main-content h1 {
+                font-size: 30px;
+            }
+
+
+            /* Product card */
+
+            .product-section {
+                padding: 30px 15px;
+            }
+
+            .product-card {
+                width: 90%;
+            }
+
+
+            /* Blog cards become one column */
+
+            .blog-container {
+                flex-direction: column;
+            }
+
+            .blog-card {
+                width: 100%;
+            }
+
+            .blog-section {
+                padding: 30px 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         SIDEBAR
+    ========================= -->
+
+    <aside class="sidebar">
+
+        <h2>My Website</h2>
+
+        <a href="#home">Home</a>
+
+        <a href="#about">About</a>
+
+        <a href="#products">Products</a>
+
+        <a href="#blog">Blog</a>
+
+        <a href="#contact">Contact</a>
+
+    </aside>
+
+
+
+    <!-- =========================
+         RIGHT SIDE CONTENT
+    ========================= -->
+
+    <div class="page-content">
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================= -->
+
+        <main class="main-content" id="home">
+
+            <h1>Responsive Web Layout</h1>
+
+            <p>
+                This is the main content area of the website.
+                The sidebar automatically adjusts on smaller screens.
+            </p>
+
+        </main>
+
+
+
+        <!-- =========================
+             ABOUT
+        ========================= -->
+
+        <section class="main-content" id="about">
+
+            <h2>About</h2>
+
+            <p>
+                This website demonstrates responsive web design
+                using HTML and CSS.
+            </p>
+
+        </section>
+
+
+
+        <!-- =========================
+             PRODUCT CARD
+        ========================= -->
+
+        <section class="product-section" id="products">
+
+            <h2>Product Card</h2>
+
+
+            <div class="product-card">
+
+                <img src="image.png" alt="Wireless Headphones">
+
+
+                <h3>Wireless Headphones</h3>
+
+
+                <p>
+                    High-quality wireless headphones
+                    with comfortable design.
+                </p>
+
+
+                <div class="price">
+                    ₹1,999
+                </div>
+
+
+                <button class="buy-btn">
+                    Buy Now
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             BLOG SECTION
+        ========================= -->
+
+        <section class="blog-section" id="blog">
+
+            <h2>Latest Blogs</h2>
+
+
+            <div class="blog-container">
+
+
+                <!-- BLOG 1 -->
+
+                <div class="blog-card">
+
+                    <h3>Web Development</h3>
+
+                    <p>
+                        Learn the basics of HTML and CSS
+                        to create beautiful and responsive
+                        websites.
+                    </p>
+
+                </div>
+
+
+                <!-- BLOG 2 -->
+
+                <div class="blog-card">
+
+                    <h3>CSS Flexbox</h3>
+
+                    <p>
+                        Flexbox makes it easier to create
+                        flexible layouts and arrange
+                        elements on a webpage.
+                    </p>
+
+                </div>
+
+
+                <!-- BLOG 3 -->
+
+                <div class="blog-card">
+
+                    <h3>Responsive Design</h3>
+
+                    <p>
+                        Media queries help websites adjust
+                        properly on mobile, tablet and
+                        desktop screens.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             CONTACT
+        ========================= -->
+
+        <section class="main-content" id="contact">
+
+            <h2>Contact</h2>
+
+            <p>
+                You can contact us for more information.
+            </p>
+
+        </section>
+
+
+    </div>
+
+
+</body>
+
+</html>
