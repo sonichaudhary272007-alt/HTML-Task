@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Age Eligibility Checker</title>
+</head>
+<body>
+
+    <h2>Age Eligibility Checker</h2>
+
+    <script>
+        // Take input from the user
+        let age = prompt("Enter your age:");
+
+        age = Number(age);
+
+        // Using if-else
+        if (age >= 18) {
+            alert("You are eligible.");
+            document.write("You are " + age + " years old.<br>");
+            document.write("You are eligible to vote.");
+        } else {
+            alert("You are not eligible.");
+            document.write("You are " + age + " years old.<br>");
+            document.write("You are not eligible to vote.");
+        }
+
+        // Using ternary operator
+        let result = age >= 18 ? "Eligible to vote" : "Not eligible to vote";
+        alert(result);
+        document.write( result);
+  
+    </script>
+
+</body>
+</html>
+
+    </script>
+</body>
+</html>
