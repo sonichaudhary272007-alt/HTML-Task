@@ -1,0 +1,290 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Explorer</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #080d2b;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: #11183f;
+        }
+
+        .navbar-brand {
+            color: #7ee7ff !important;
+            font-weight: bold;
+            font-size: 25px;
+        }
+
+        .nav-link {
+            color: white !important;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #7ee7ff !important;
+            transform: translateY(-3px);
+        }
+
+        /* Landing Page */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #080d2b, #202b68);
+            padding: 60px 0;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: bold;
+        }
+
+        .hero h1 span {
+            color: #7ee7ff;
+        }
+
+        .hero p {
+            color: #d4ddff;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .explore-btn {
+            background: #7ee7ff;
+            color: #080d2b;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .explore-btn:hover {
+            background: white;
+            transform: scale(1.08);
+        }
+
+        /* Rocket Animation */
+        .rocket {
+            font-size: clamp(100px, 18vw, 180px);
+            text-align: center;
+            animation: fly 3s ease-in-out infinite;
+        }
+
+        @keyframes fly {
+            0%, 100% {
+                transform: translateY(0) rotate(-8deg);
+            }
+
+            50% {
+                transform: translateY(-35px) rotate(8deg);
+            }
+        }
+
+        /* Astronaut Animation */
+        .astronaut {
+            font-size: 65px;
+            display: inline-block;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(-10deg);
+            }
+
+            50% {
+                transform: translate(15px, -20px) rotate(10deg);
+            }
+        }
+
+        /* Features */
+        .features {
+            padding: 65px 0;
+            background: #10173c;
+        }
+
+        .feature-card {
+            background: #202951;
+            border: 1px solid #374477;
+            border-radius: 15px;
+            padding: 30px 20px;
+            height: 100%;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px #0005;
+        }
+
+        .feature-card h3 {
+            color: #7ee7ff;
+            margin: 15px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 22px;
+            background: #080d2b;
+            color: #d4ddff;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 767px) {
+            .hero {
+                text-align: center;
+                padding: 45px 0;
+            }
+
+            .rocket {
+                margin-top: 35px;
+            }
+
+            .astronaut {
+                font-size: 50px;
+            }
+        }
+
+        /* Respect reduced-motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#home">🚀 SpaceXplore</a>
+
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarMenu"
+                    aria-controls="navbarMenu"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Explore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <div class="col-md-6">
+                    <span class="astronaut" aria-hidden="true">🧑‍🚀</span>
+
+                    <h1>Explore the <span>Universe</span></h1>
+
+                    <p>
+                        Discover distant planets, travel through galaxies,
+                        and imagine a world beyond the stars.
+                        Your space adventure starts here!
+                    </p>
+
+                    <a href="#features"
+                       class="btn explore-btn mt-2">
+                        Start Exploring
+                    </a>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="rocket" aria-hidden="true">🚀</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="text-center mb-5">Discover Space</h2>
+
+            <div class="row g-4">
+
+                <div class="col-12 col-md-4">
+                    <div class="feature-card text-center">
+                        <div class="fs-1">🪐</div>
+                        <h3>Planets</h3>
+                        <p>Discover fascinating planets and their unique worlds.</p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="feature-card text-center">
+                        <div class="fs-1">🌌</div>
+                        <h3>Galaxies</h3>
+                        <p>Explore beautiful galaxies and the mysteries of space.</p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="feature-card text-center">
+                        <div class="fs-1">🛰️</div>
+                        <h3>Space Missions</h3>
+                        <p>Learn how astronauts and spacecraft explore the universe.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-5 text-center" id="about">
+        <div class="container">
+            <h2>Beyond the Stars</h2>
+            <p class="mt-3">
+                Dream big, stay curious, and keep exploring!
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p class="mb-0">&copy; 2026 SpaceXplore | Keep Exploring 🚀</p>
+    </footer>
+
+    <!-- Bootstrap JavaScript for mobile navigation -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+```
